@@ -5,29 +5,36 @@ import { NavigationContainer } from '@react-navigation/native';
 import HomeScreen from '../../screens/HomeScreen';
 import JobListScreen from '../../screens/JobListScreen';
 import ServiceSeeker from '../../screens/ServiceSeeker';
-// import RecommendedScreen from '../../screens/RecommendedScreen'; // Example screen
-// import MyActivityScreen from '../../screens/MyActivityScreen'; // Example screen
-// import CareerScreen from '../../screens/CareerScreen'; // Example screen
-// import ProfileScreen from '../../screens/ProfileScreen'; // Example screen
-import Icon from 'react-native-vector-icons/FontAwesome';
 import ProfileScreen from '../../screens/ProfileScreen';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import CareerAdviceScreen from '../../screens/CareerAdviceScreen';
+import ActivityScreen from '../../screens/ActivityScreen';
 
-// Create stack navigator
-const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
+// Create stack navigators
+const HomeStack = createStackNavigator();
 
-// Stack Navigator for the screens
-function HomeStack() {
+// Define stack navigators
+function HomeStackScreen() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Jobs" component={JobListScreen} />
-      <Stack.Screen name="ServiceSeeker" component={ServiceSeeker} />
-    </Stack.Navigator>
+    <HomeStack.Navigator>
+      <HomeStack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
+      {/* <HomeStack.Screen name="Jobs" component={JobListScreen} /> */}
+      <HomeStack.Screen
+        name="ServiceSeeker"
+        component={ServiceSeeker}
+        options={{ headerShown: false }}
+      />
+    </HomeStack.Navigator>
   );
 }
 
 // Bottom Tab Navigator
+const Tab = createBottomTabNavigator();
+
 function AppTabs() {
   return (
     <Tab.Navigator
@@ -59,18 +66,18 @@ function AppTabs() {
         },
       })}
       tabBarOptions={{
-        activeTintColor: '#FF0000', // Red color for active tab
+        activeTintColor: '#FF0000',
         inactiveTintColor: 'gray',
         style: {
-          backgroundColor: '#f1f1f1', // Tab bar background color
-          borderTopColor: 'transparent', // Hide the top border
+          backgroundColor: '#f1f1f1',
+          borderTopColor: 'transparent',
         },
       }}
     >
-      <Tab.Screen name="Home" component={HomeStack} />
-      <Tab.Screen name="Recommended" component={HomeStack} />
-      <Tab.Screen name="My Activity" component={HomeStack} />
-      <Tab.Screen name="Career" component={HomeStack} />
+      <Tab.Screen name="Home" component={HomeStackScreen} />
+      <Tab.Screen name="Recommended" component={JobListScreen} />
+      <Tab.Screen name="My Activity" component={ActivityScreen} />
+      <Tab.Screen name="Career" component={CareerAdviceScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
