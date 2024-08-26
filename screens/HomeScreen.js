@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 75,
     borderBottomLeftRadius: 75,
     overflow: 'hidden',
-    position: 'relative', // Added for positioning of the link
+    position: 'relative',
   },
 
   bottomHalf: {
@@ -123,11 +123,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: 5,
-    elevation: 3, // Adds shadow for Android
-    shadowColor: '#000', // Shadow color for iOS
-    shadowOffset: { width: 0, height: 2 }, // Shadow offset for iOS
-    shadowOpacity: 0.1, // Shadow opacity for iOS
-    shadowRadius: 4, // Shadow blur radius for iOS
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   serviceProviderButton: {
     backgroundColor: '#009B77',
